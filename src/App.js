@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import AddToDO from "./components/AddToDo";
+import Todo from "./components/Todo";
+import { ToDoContextProvider } from "./context/ToDocontext";
+import Footer from "./temp/Footer";
+import Navbar from "./temp/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ToDoContextProvider>
+      <div className='flex flex-col justify-between h-screen'>
+        <Navbar />
+        <div className='flex flex-col sm:flex-row py-8 justify-between px-8'>
+          <AddToDO />
+          <Todo />
+        </div>
+
+        <Footer />
+      </div>
+    </ToDoContextProvider>
   );
 }
 
